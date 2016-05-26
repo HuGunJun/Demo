@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar1"
+            style="@style/NumberProgressBar_Default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            custom:progress_current="0"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar2"
+            style="@style/NumberProgressBar_Passing_Green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar3"
+            style="@style/NumberProgressBar_Relax_Blue"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="30"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar4"
+            style="@style/NumberProgressBar_Grace_Yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="40"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar5"
+            style="@style/NumberProgressBar_Warning_Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="50"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar6"
+            style="@style/NumberProgressBar_Funny_Orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="60"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar7"
+            style="@style/NumberProgressBar_Beauty_Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="70"/>
+
+        <com.easemob.easeui.widget.progress.NumberProgressBar
+            android:id="@+id/numberbar8"
+            style="@style/NumberProgressBar_Twinkle_Night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            custom:progress_current="80"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="170dp"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:id="@+id/QR"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher"/>
+
+            <com.easemob.easeui.widget.progress.CustomView
+                android:id="@+id/customView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

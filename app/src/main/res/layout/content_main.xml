@@ -1,0 +1,323 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- actionsheet -->
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="消息"/>
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="图片"/>
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="列表"/>
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="按钮一"/>
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="按钮二"/>
+            <!-- actionsheet -->
+
+
+            <!-- dialog -->
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="show"/>
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showWithMaskType"/>
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showWithStatus"/>
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showInfoWithStatus"/>
+
+            <Button
+                android:id="@+id/btn10"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showSuccessWithStatus"/>
+
+            <Button
+                android:id="@+id/btn11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showErrorWithStatus"/>
+
+            <Button
+                android:id="@+id/btn12"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:onClick="onClick"
+                android:text="showWithProgress"/>
+            <!-- dialog -->
+
+
+            <!-- gridview/viewpaget_listview -->
+
+            <Button
+                android:id="@+id/btn13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="轮播图"/>
+
+
+            <!-- 滑动菜单 -->
+
+            <Button
+                android:id="@+id/btn16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="滑动菜单"/>
+            <!-- 滑动菜单 -->
+
+
+            <!-- switchView -->
+
+            <com.easemob.easeui.widget.switchview.SegmentView
+                android:id="@+id/segmentView"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_margin="10dp"
+                app:content="左边,中,右边"
+                app:index="1"
+                app:textColorN="#0072c6"
+                app:textColorP="#ffffff"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+
+                <com.easemob.easeui.widget.switchview.SwitchView
+                    android:id="@+id/switchView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_margin="20dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <com.easemob.easeui.widget.switchview.SwitchButton
+                    android:id="@+id/switchButton"
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_margin="20dp"
+                    app:animate="true"
+                    app:borderWidth="1px"
+                    app:offBorderColor="#dadbda"
+                    app:offColor="#ffffff"
+                    app:onColor="#4ebb7f"
+                    app:spotColor="#ffffff"/>
+            </LinearLayout>
+            <!-- switchView -->
+
+
+            <!-- Loadding -->
+            <com.easemob.easeui.widget.loadding.MonIndicator
+                android:id="@+id/monIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                app:circleRadius="14dp"
+                app:cycle="1500"/>
+            <!-- Loadding -->
+
+
+            <!-- progressbar -->
+
+            <Button
+                android:id="@+id/btn20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="ProgressBar"/>
+            <!-- progressbar -->
+
+
+            <!-- listview 动画 -->
+
+            <Button
+                android:id="@+id/btn21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="listview动画"/>
+            <!-- listview 动画 -->
+
+
+            <!-- 二维码扫描 -->
+            <ImageView
+                android:id="@+id/QR"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+            <Button
+                android:id="@+id/btn22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="二维码"/>
+
+            <!-- 视频播放 -->
+
+            <Button
+                android:id="@+id/btn23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="视频"/>
+
+            <!-- 设置配置文件 -->
+
+            <Button
+                android:id="@+id/btn24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="slidingTextView"/>
+
+            <!-- 温度计 -->
+
+            <Button
+                android:id="@+id/btn25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="TempView"/>
+
+            <!-- 日历 -->
+
+            <Button
+                android:id="@+id/btn26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="日历"/>
+
+            <!-- 日历 -->
+
+            <Button
+                android:id="@+id/btn27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="图标"/>
+
+            <!-- 仪表 -->
+
+            <Button
+                android:id="@+id/btn28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="仪表盘"/>
+
+            <!-- 轮播图 -->
+
+            <Button
+                android:id="@+id/btn29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="轮播图"/>
+
+            <!-- gif动态图片 -->
+
+            <Button
+                android:id="@+id/btn30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="动态图"/>
+
+            <!-- 视频播放器 -->
+
+            <Button
+                android:id="@+id/btn31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="视频播放器"/>
+            <!-- 水平滚动标题栏 -->
+
+            <Button
+                android:id="@+id/btn32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="水平滚动标题栏"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
