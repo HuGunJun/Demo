@@ -22,7 +22,7 @@ public class Activity2 extends EaseBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
         ViewUtils.inject(this);
-//        InitView();
+        InitView();
     }
 
     @Override
@@ -69,6 +69,13 @@ public class Activity2 extends EaseBaseActivity {
      */
     private Map<String, EaseUser> getContacts() {
         Map<String, EaseUser> contacts = new HashMap<String, EaseUser>();
+        String chasr = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < 100; i++) {
+            EaseUser user = new EaseUser();
+            user.setUsername("测试");
+            user.setNick(chasr.charAt((int) (Math.random() * 26)) + "");
+            contacts.put(i + "", user);
+        }
 
         return contacts;
     }

@@ -6,7 +6,8 @@
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <!-- 二维码扫描权限 -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
@@ -50,6 +51,13 @@
         <activity
             android:name=".Demo.TestDemo"
             android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <activity
+            android:name=".Demo.Activity1"></activity>
+        <activity android:name=".Demo.Activity2"></activity>
+        <activity android:name=".Demo.Activity3"></activity>
+        <activity android:name=".Demo.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -57,12 +65,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity
-            android:name=".Demo.Activity1"></activity>
-        <activity android:name=".Demo.Activity2"></activity>
-        <activity android:name=".Demo.Activity3"></activity>
-
         <!-- 上面是测试的Demo-->
 
 
@@ -81,7 +83,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="guojunkuaile#imtest"/>
+            android:value="guojunkuaile#match"/>
         <!-- 声明sdk所需的service -->
         <service
             android:name="com.easemob.chat.EMChatService"
