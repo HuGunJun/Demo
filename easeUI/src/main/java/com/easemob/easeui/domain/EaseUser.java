@@ -25,6 +25,46 @@ public class EaseUser extends EMContact {
      */
     protected String avatar;
 
+    /**
+     * 用户性别
+     */
+    protected String sex;
+
+    /**
+     * 年龄
+     */
+    protected String age;
+
+
+    /**
+     * 是否是黑名单
+     */
+    protected String isblack;
+
+    public void setIsblack(String isblack) {
+        this.isblack = isblack;
+    }
+
+    public String getIsblack() {
+        return isblack;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
     public String getInitialLetter() {
         return initialLetter;
     }

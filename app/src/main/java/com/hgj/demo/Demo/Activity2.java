@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
+import com.easemob.easeui.model.UserManager;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseContactListFragment;
 import com.hgj.demo.R;
 import com.lidroid.xutils.ViewUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Activity2 extends EaseBaseActivity {
@@ -69,11 +72,10 @@ public class Activity2 extends EaseBaseActivity {
      */
     private Map<String, EaseUser> getContacts() {
         Map<String, EaseUser> contacts = new HashMap<String, EaseUser>();
-        String chasr = "abcdefghijklmnopqrstuvwxyz";
-        for (int i = 0; i < 100; i++) {
+        List<EaseUser> user_contract = UserManager.getManage(EaseUI.getInstance().getSQLHelper()).getUser_Contract();
+        for (int i = 0; i < user_contract.size(); i++) {
             EaseUser user = new EaseUser();
-            user.setUsername("测试");
-            user.setNick(chasr.charAt((int) (Math.random() * 26)) + "");
+            user.setUsername(user_contract.get(i).getUsername());
             contacts.put(i + "", user);
         }
 

@@ -17,25 +17,15 @@ import java.util.List;
  */
 public class MyApp extends Application {
 
+    private SQLHelper helper;
+
     @Override
     public void onCreate() {
         super.onCreate();
         EaseUI.getInstance().init(this);
         EMChat.getInstance().setAutoLogin(true);
         EMChat.getInstance().setAppInited();
-        List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> hashMap = new HashMap<String, String>();
-        hashMap.put(SQLHelper.INFO, "name");
-        hashMap.put(SQLHelper.TYPE, "TEXT");
-        list.add(hashMap);
-
-        HashMap<String, String> hashMap1 = new HashMap<String, String>();
-        hashMap1.put(SQLHelper.INFO, "sex");
-        hashMap1.put(SQLHelper.TYPE, "INT");
-        list.add(hashMap1);
-
-        EaseUI.getInstance().setSqlHashMap(list);
-        EaseUI.getInstance().getSQLHelper().getWritableDatabase();
 
     }
+
 }

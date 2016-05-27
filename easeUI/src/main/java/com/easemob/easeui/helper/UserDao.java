@@ -27,21 +27,21 @@ public class UserDao implements DaoInterFace {
     }
 
     @Override
-    public boolean addCache(EaseUser item) {
+    public boolean addFriend(EaseUser item) {
         boolean flag = false;
         SQLiteDatabase database = null;
         long id = -1;
         try {
             database = helper.getWritableDatabase();
             ContentValues values = new ContentValues();
-
-//            List<HashMap<String, String>> sqlHashMap = EaseUI.getInstance().getSqlHashMap();
-//            for (int i = 0; i < sqlHashMap.size(); i++) {
-//                values.put(sqlHashMap.get(i).get(SQLHelper.INFO), item.getId());
-//                values.put(SQLHelper.NAME, item.getName());
-//                values.put(SQLHelper.ORDERID, item.getOrderId());
-//                values.put(SQLHelper.SELECTED, item.getSelected());
-//            }
+            values.put(SQLHelper.EID, item.getEid());
+            values.put(SQLHelper.NAME, item.getUsername());
+            values.put(SQLHelper.NICK, item.getNick());
+            values.put(SQLHelper.SEX, item.getSex());
+            values.put(SQLHelper.AGE, item.getAge());
+            values.put(SQLHelper.AVATAR, item.getAvatar());
+            values.put(SQLHelper.INITIALETTER, item.getInitialLetter());
+            values.put(SQLHelper.ISBLIACK, item.getIsblack());
             id = database.insert(SQLHelper.TABLE_USER, null, values);
             flag = (id != -1 ? true : false);
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class UserDao implements DaoInterFace {
     }
 
     @Override
-    public boolean deleteCache(String whereClause, String[] whereArgs) {
+    public boolean deleteFriend(String whereClause, String[] whereArgs) {
         boolean flag = false;
         SQLiteDatabase database = null;
         int count = 0;
@@ -73,8 +73,8 @@ public class UserDao implements DaoInterFace {
     }
 
     @Override
-    public boolean updateCache(ContentValues values, String whereClause,
-                               String[] whereArgs) {
+    public boolean updateFriend(ContentValues values, String whereClause,
+                                String[] whereArgs) {
         boolean flag = false;
         SQLiteDatabase database = null;
         int count = 0;

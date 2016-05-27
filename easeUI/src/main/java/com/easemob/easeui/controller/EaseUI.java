@@ -59,17 +59,52 @@ public final class EaseUI {
     private EaseNotifier notifier = null;
 
     /**
-     * 数据库存储数据数据
+     * 好友列表
      */
-    private List<HashMap<String, String>> list;
+    private List<HashMap<String, String>> friendlist;
 
-    public void setSqlHashMap(List<HashMap<String, String>> list) {
-        this.list = list;
+    /**
+     * 黑名单
+     */
+    private List<HashMap<String, String>> blacklist;
+
+    /**
+     * 设置黑名单列表
+     *
+     * @param blacklist
+     */
+    public void setBlacklist(List<HashMap<String, String>> blacklist) {
+        this.blacklist = blacklist;
     }
 
-    public List<HashMap<String, String>> getSqlHashMap() {
-        return this.list;
+    /**
+     * 获取黑名单列表
+     *
+     * @return
+     */
+    public List<HashMap<String, String>> getBlacklist() {
+        return blacklist;
     }
+
+
+    /**
+     * 设置好友列表
+     *
+     * @param friendlist
+     */
+    public void setFriendlist(List<HashMap<String, String>> friendlist) {
+        this.friendlist = friendlist;
+    }
+
+    /**
+     * 获取好友列表
+     *
+     * @return
+     */
+    public List<HashMap<String, String>> getFriendlist() {
+        return friendlist;
+    }
+
 
     /**
      * 用来记录注册了eventlistener的foreground Activity

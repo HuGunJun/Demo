@@ -6,8 +6,16 @@ import android.view.View;
 
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMContactManager;
+import com.easemob.easeui.controller.EaseUI;
+import com.easemob.easeui.helper.SQLHelper;
 import com.easemob.easeui.ui.EaseBaseActivity;
+import com.easemob.exceptions.EaseMobException;
 import com.hgj.demo.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 作者：HuGuoJun
@@ -37,12 +45,39 @@ public class LoginActivity extends EaseBaseActivity {
         EMChatManager.getInstance().login("huguojun", "123456", new EMCallBack() {
             @Override
             public void onSuccess() {
-                startActivity(new Intent(context, TestDemo.class));
+                try {
+                    List<String> contactUserNames = EMContactManager
+                            .getInstance().getContactUserNames();
+
+                    List<HashMap<String, String>> list_friend = new ArrayList<HashMap<String, String>>();
+
+
+                    for (int i = 0; i < contactUserNames.size(); i++) {
+                        HashMap<String, String> hashMap = new HashMap<String, String>();
+                        hashMap.put(SQLHelper.NAME, contactUserNames.get(i).toString());
+                        list_friend.add(hashMap);
+                    }
+                    EaseUI.getInstance().setFriendlist(list_friend);
+
+                    List<String> blackListUsernames = EMContactManager
+                            .getInstance().getBlackListUsernames();
+                    List<HashMap<String, String>> list_black = new ArrayList<HashMap<String, String>>();
+                    for (int i = 0; i < blackListUsernames.size(); i++) {
+                        HashMap<String, String> hashMap = new HashMap<String, String>();
+                        hashMap.put(SQLHelper.NAME, blackListUsernames.get(i).toString());
+                        list_black.add(hashMap);
+                    }
+                    EaseUI.getInstance().setBlacklist(list_black);
+
+                    startActivity(new Intent(context, TestDemo.class));
+                } catch (EaseMobException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void onError(int i, String s) {
-                
+
             }
 
             @Override

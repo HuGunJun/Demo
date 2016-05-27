@@ -14,11 +14,11 @@ import java.util.Map;
  */
 public interface DaoInterFace {
 
-    public boolean addCache(EaseUser item);
+    public boolean addFriend(EaseUser item);
 
-    public boolean deleteCache(String whereClause, String[] whereArgs);
+    public boolean deleteFriend(String whereClause, String[] whereArgs);
 
-    public boolean updateCache(ContentValues values, String whereClause,
+    public boolean updateFriend(ContentValues values, String whereClause,
                                String[] whereArgs);
 
     public Map<String, String> viewCache(String selection,
