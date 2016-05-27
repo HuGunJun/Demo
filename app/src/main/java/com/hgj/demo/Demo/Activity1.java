@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.easemob.chat.EMConversation;
-import com.easemob.easeui.EaseConstant;
+import com.easemob.easeui.domain.EaseUser;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseConversationListFragment;
 import com.hgj.demo.R;

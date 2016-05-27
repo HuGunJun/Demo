@@ -3,12 +3,10 @@ package com.hgj.demo.Demo;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
-import com.easemob.easeui.ui.EaseBaseActivity;
 import com.hgj.demo.R;
 
 /**

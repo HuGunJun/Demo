@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2013-2014 EaseMob Technologies. All rights reserved.
- * <p>
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,16 +17,18 @@ package com.easemob.easeui.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
-import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.widget.loadding.ZProgressHUD;
 
 public abstract class EaseBaseActivity extends AppCompatActivity {
     public Context context;
     private ZProgressHUD progressHUD;
+    public WindowManager wm;
+    protected InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -42,6 +44,19 @@ public abstract class EaseBaseActivity extends AppCompatActivity {
                 finish();
                 return;
             }
+        }
+        wm = this.getWindowManager();
+        inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    }
+
+    /**
+     * 隐藏键盘输入法
+     */
+    protected void hideSoftKeyboard() {
+        if (getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+            if (getCurrentFocus() != null)
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus()
+                        .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
