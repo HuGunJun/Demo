@@ -22,6 +22,8 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String TABLE_USER = "users_list";// 联系人列表
     public static final String TYPE = "type";//用户传入信息的类型
     public static final String INFO = "info";//用户传入信息的字段
+    public static final String NAME="user_name";
+    public static final String SEX="user_sex";
 
     private Context context;
 

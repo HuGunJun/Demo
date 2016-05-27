@@ -9,7 +9,6 @@ import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
 
 import java.util.ArrayList;
-import java.util.FormatFlagsConversionMismatchException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,13 +35,13 @@ public class UserDao implements DaoInterFace {
             database = helper.getWritableDatabase();
             ContentValues values = new ContentValues();
 
-            List<HashMap<String, String>> sqlHashMap = EaseUI.getInstance().getSqlHashMap();
-            for (int i = 0; i < sqlHashMap.size(); i++) {
-                values.put(sqlHashMap.get(i).get(SQLHelper.INFO), item.getId());
-                values.put(SQLHelper.NAME, item.getName());
-                values.put(SQLHelper.ORDERID, item.getOrderId());
-                values.put(SQLHelper.SELECTED, item.getSelected());
-            }
+//            List<HashMap<String, String>> sqlHashMap = EaseUI.getInstance().getSqlHashMap();
+//            for (int i = 0; i < sqlHashMap.size(); i++) {
+//                values.put(sqlHashMap.get(i).get(SQLHelper.INFO), item.getId());
+//                values.put(SQLHelper.NAME, item.getName());
+//                values.put(SQLHelper.ORDERID, item.getOrderId());
+//                values.put(SQLHelper.SELECTED, item.getSelected());
+//            }
             id = database.insert(SQLHelper.TABLE_USER, null, values);
             flag = (id != -1 ? true : false);
         } catch (Exception e) {
