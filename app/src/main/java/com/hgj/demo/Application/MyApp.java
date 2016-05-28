@@ -2,13 +2,8 @@ package com.hgj.demo.Application;
 
 import android.app.Application;
 
-import com.easemob.chat.EMChat;
-import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.helper.SQLHelper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.hgj.demo.ChatHelper.ChatHelper;
 
 /**
  * 作者：HuGuoJun
@@ -22,10 +17,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        EaseUI.getInstance().init(this);
-        EMChat.getInstance().setAutoLogin(true);
-        EMChat.getInstance().setAppInited();
-
+        ChatHelper.getInstance().init(this);
     }
 
 }
