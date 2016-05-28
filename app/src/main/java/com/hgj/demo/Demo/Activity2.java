@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
+import com.easemob.easeui.model.InviteManager;
 import com.easemob.easeui.model.UserManager;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseContactListFragment;
@@ -78,8 +79,8 @@ public class Activity2 extends EaseBaseActivity {
             user.setUsername(user_contract.get(i).getUsername());
             contacts.put(i + "", user);
         }
-
         return contacts;
+
     }
 
 }

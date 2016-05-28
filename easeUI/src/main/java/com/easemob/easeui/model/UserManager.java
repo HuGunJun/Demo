@@ -36,19 +36,19 @@ public class UserManager {
     }
 
     /**
-     * 初始化频道管理类
+     * 初始化好友管理类
      *
      * @param paramDBHelper
      * @throws SQLException
      */
-    public static UserManager getManage(SQLHelper dbHelper) throws SQLException {
+    public synchronized static UserManager getManage(SQLHelper dbHelper) throws SQLException {
         InitData();
         if (userManager == null)
             userManager = new UserManager(dbHelper);
         return userManager;
     }
 
-    private static void InitData() {
+    private synchronized static void InitData() {
         User_Contract = new ArrayList<EaseUser>();
         User_BlackList = new ArrayList<EaseUser>();
 
@@ -84,7 +84,7 @@ public class UserManager {
     /**
      * 清除所有朋友
      */
-    public void deleteAllFriend() {
+    public synchronized void deleteAllFriend() {
         userDao.clearFeedTable();
     }
 
@@ -93,7 +93,7 @@ public class UserManager {
      *
      * @return 数据库存在用户配置 ? 数据库内的用户选择频道 : 默认用户选择频道 ;
      */
-    public List<EaseUser> getUser_Contract() {
+    public synchronized List<EaseUser> getUser_Contract() {
         Object cacheList = userDao.listCache(SQLHelper.ISBLIACK + "= ?",
                 new String[]{"1"});
         if (cacheList != null && !((List) cacheList).isEmpty()) {
@@ -125,7 +125,7 @@ public class UserManager {
      *
      * @return 数据库存在用户配置 ? 数据库内的其它频道 : 默认其它频道 ;
      */
-    public List<EaseUser> getUser_BlackList() {
+    public synchronized List<EaseUser> getUser_BlackList() {
         Object cacheList = userDao.listCache(SQLHelper.ISBLIACK + "= ?",
                 new String[]{"0"});
         List<EaseUser> list = new ArrayList<EaseUser>();
@@ -157,7 +157,7 @@ public class UserManager {
     /**
      * 初始化数据库内的频道数据
      */
-    private void initChannel() {
+    private synchronized void initChannel() {
         deleteAllFriend();
         saveFriendList(User_Contract);
         saveBlackList(User_BlackList);
@@ -168,7 +168,7 @@ public class UserManager {
      *
      * @param userList
      */
-    public void saveFriendList(List<EaseUser> userList) {
+    public synchronized void saveFriendList(List<EaseUser> userList) {
         for (int i = 0; i < userList.size(); i++) {
             EaseUser channelItem = (EaseUser) userList.get(i);
             channelItem.setIsblack("1");
@@ -181,7 +181,7 @@ public class UserManager {
      *
      * @param otherList
      */
-    public void saveBlackList(List<EaseUser> otherList) {
+    public synchronized void saveBlackList(List<EaseUser> otherList) {
         for (int i = 0; i < otherList.size(); i++) {
             EaseUser channelItem = (EaseUser) otherList.get(i);
             channelItem.setIsblack("0");

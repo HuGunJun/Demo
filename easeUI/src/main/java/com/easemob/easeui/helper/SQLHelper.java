@@ -30,6 +30,20 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String AVATAR = "avatar";//头像
     public static final String INITIALETTER = "initialLetter";//首字母
     public static final String ISBLIACK = "isblack";//是否为黑名单或者陌生人
+
+
+    public static final String TABLE_INVITE = "new_friends_msgs";
+    public static final String COLUMN_NAME_ID = "id";
+    public static final String COLUMN_NAME_FROM = "username";
+    public static final String COLUMN_NAME_GROUP_ID = "groupid";
+    public static final String COLUMN_NAME_GROUP_Name = "groupname";
+    public static final String COLUMN_NAME_TIME = "time";
+    public static final String COLUMN_NAME_REASON = "reason";
+    public static final String COLUMN_NAME_STATUS = "status";
+    public static final String COLUMN_NAME_ISINVITEFROMME = "isInviteFromMe";
+    public static final String COLUMN_NAME_UNREAD_MSG_COUNT = "unreadMsgCount";
+
+
     private Context context;
 
     public SQLHelper(Context context) {
@@ -55,6 +69,21 @@ public class SQLHelper extends SQLiteOpenHelper {
                 + INITIALETTER + " TEXT , "
                 + ISBLIACK + " TEXT)";
         db.execSQL(sql_contract_list);
+
+
+        String INIVTE_MESSAGE_TABLE_CREATE = "create table if not exists  "
+                + TABLE_INVITE + " ("
+                + COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_NAME_FROM + " TEXT, "
+                + COLUMN_NAME_GROUP_ID + " TEXT, "
+                + COLUMN_NAME_GROUP_Name + " TEXT, "
+                + COLUMN_NAME_REASON + " TEXT, "
+                + COLUMN_NAME_STATUS + " INTEGER, "
+                + COLUMN_NAME_ISINVITEFROMME + " INTEGER, "
+                + COLUMN_NAME_UNREAD_MSG_COUNT + " INTEGER, "
+                + COLUMN_NAME_TIME + " TEXT); ";
+
+        db.execSQL(INIVTE_MESSAGE_TABLE_CREATE);
 
     }
 
