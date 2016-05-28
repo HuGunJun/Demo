@@ -82,9 +82,9 @@ public class UserManager {
     }
 
     /**
-     * 清除所有的频道
+     * 清除所有朋友
      */
-    public void deleteAllChannel() {
+    public void deleteAllFriend() {
         userDao.clearFeedTable();
     }
 
@@ -121,7 +121,7 @@ public class UserManager {
     }
 
     /**
-     * 获取其他的频道
+     * 获取黑名单
      *
      * @return 数据库存在用户配置 ? 数据库内的其它频道 : 默认其它频道 ;
      */
@@ -158,9 +158,9 @@ public class UserManager {
      * 初始化数据库内的频道数据
      */
     private void initChannel() {
-        deleteAllChannel();
-        saveUserChannel(User_Contract);
-        saveOtherChannel(User_BlackList);
+        deleteAllFriend();
+        saveFriendList(User_Contract);
+        saveBlackList(User_BlackList);
     }
 
     /**
@@ -168,7 +168,7 @@ public class UserManager {
      *
      * @param userList
      */
-    public void saveUserChannel(List<EaseUser> userList) {
+    public void saveFriendList(List<EaseUser> userList) {
         for (int i = 0; i < userList.size(); i++) {
             EaseUser channelItem = (EaseUser) userList.get(i);
             channelItem.setIsblack("1");
@@ -181,7 +181,7 @@ public class UserManager {
      *
      * @param otherList
      */
-    public void saveOtherChannel(List<EaseUser> otherList) {
+    public void saveBlackList(List<EaseUser> otherList) {
         for (int i = 0; i < otherList.size(); i++) {
             EaseUser channelItem = (EaseUser) otherList.get(i);
             channelItem.setIsblack("0");
