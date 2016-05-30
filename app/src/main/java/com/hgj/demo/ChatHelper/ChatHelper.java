@@ -15,6 +15,7 @@ import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
 import com.easemob.easeui.model.EaseNotifier;
 import com.easemob.easeui.model.UserManager;
+import com.hgj.demo.Demo.Activity1;
 import com.hgj.demo.Demo.ChatActivity;
 
 import java.util.EventListener;
@@ -72,6 +73,7 @@ public class ChatHelper {
                     EMMessage message = (EMMessage) emNotifierEvent.getData();
                     EaseUI.getInstance().getNotifier().onNewMsg(message);
                     // 刷新聊天历史页面
+                    Activity1.conversationListFragment.refresh();
                     break;
                 }
                 default:
