@@ -3,7 +3,6 @@ package com.hgj.demo.Demo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.easemob.chat.EMConversation;
 import com.easemob.easeui.EaseConstant;
@@ -11,7 +10,6 @@ import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseConversationListFragment;
 import com.hgj.demo.R;
 import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 public class Activity1 extends EaseBaseActivity {
 

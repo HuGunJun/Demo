@@ -6,9 +6,10 @@ import android.content.Intent;
 import com.easemob.EMConnectionListener;
 import com.easemob.EMEventListener;
 import com.easemob.EMNotifierEvent;
-import com.easemob.chat.ConnectionListener;
 import com.easemob.chat.EMChat;
 import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMContactListener;
+import com.easemob.chat.EMContactManager;
 import com.easemob.chat.EMMessage;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.controller.EaseUI;
@@ -18,7 +19,6 @@ import com.easemob.easeui.model.UserManager;
 import com.hgj.demo.Demo.Activity1;
 import com.hgj.demo.Demo.ChatActivity;
 
-import java.util.EventListener;
 import java.util.List;
 
 /**
@@ -41,24 +41,55 @@ public class ChatHelper {
         return helper;
     }
 
-    public synchronized void init(Context context) {
+    public void init(Context context) {
         this.context = context;
         EaseUI.getInstance().init(context);
         EMChat.getInstance().setAutoLogin(true);
         EMChat.getInstance().setAppInited();
 
+        //联系人监听
+        EMContactManager.getInstance().setContactListener(new MyContactListener());
         //注册一个新消息到达的监听
         EMChatManager.getInstance().registerEventListener(
                 new MyNewMessageListener());
-        // 设置提供者
+        // 设置通知提供者
         EaseUI.getInstance().getNotifier()
                 .setNotificationInfoProvider(new MyNotificationProvider());
-        // 注册一个监听连接状态的listener
-        EMChatManager.getInstance().addConnectionListener(
-                new MyConnectionListener());
         // 设置联系人提供者
         EaseUI.getInstance().setUserProfileProvider(new MyUserProvider());
     }
+
+    /**
+     * 联系人变化监听
+     */
+    public class MyContactListener implements EMContactListener {
+
+        @Override
+        public void onContactAdded(List<String> list) {
+
+        }
+
+        @Override
+        public void onContactDeleted(List<String> list) {
+
+        }
+
+        @Override
+        public void onContactInvited(String s, String s1) {
+
+        }
+
+        @Override
+        public void onContactAgreed(String s) {
+
+        }
+
+        @Override
+        public void onContactRefused(String s) {
+
+        }
+    }
+
 
     /**
      * 新消息到达监听事件
@@ -69,15 +100,15 @@ public class ChatHelper {
         public void onEvent(EMNotifierEvent emNotifierEvent) {
             switch (emNotifierEvent.getEvent()) {
                 case EventNewMessage: // 接收新消息
-                {
                     EMMessage message = (EMMessage) emNotifierEvent.getData();
                     EaseUI.getInstance().getNotifier().onNewMsg(message);
+                    EaseUI.getInstance().getNotifier().viberateAndPlayTone(message);
                     // 刷新聊天历史页面
                     Activity1.conversationListFragment.refresh();
                     break;
-                }
                 default:
                     break;
+
             }
         }
     }
