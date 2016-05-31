@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by huguojun on 16/5/31.
  */
-public class Splash extends EaseBaseActivity{
+public class Splash extends EaseBaseActivity {
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -34,17 +34,18 @@ public class Splash extends EaseBaseActivity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(EMChatManager.getInstance().getCurrentUser()!=null){
+                if (EMChatManager.getInstance().getCurrentUser() == null) {
                     Login();
-
+                }else{
+                    startActivity(new Intent(context,LoginActivity.class));
                 }
             }
-        },3000);
+        }, 3000);
 
     }
 
-    public void Login(){
-        String username =  EMChatManager.getInstance().getCurrentUser().toString();
+    public void Login() {
+        String username = EMChatManager.getInstance().getCurrentUser().toString();
         String pass = "123456";
         if (TextUtils.isEmpty(username)) {
             Toast.makeText(context, EMChatManager.getInstance().getCurrentUser().toString(), Toast.LENGTH_SHORT).show();

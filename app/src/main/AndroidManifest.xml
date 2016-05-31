@@ -70,12 +70,6 @@
         <activity android:name=".Demo.Activity3"></activity>
         <activity android:name=".Demo.ChatActivity"></activity>
         <activity android:name=".Demo.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
         </activity>
         <activity android:name=".Demo.Splash">
             <intent-filter>
