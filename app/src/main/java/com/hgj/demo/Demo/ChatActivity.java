@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.easemob.chat.EMMessage;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseChatFragment;
+import com.easemob.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hgj.demo.R;
 
 public class ChatActivity extends EaseBaseActivity {
@@ -25,6 +27,42 @@ public class ChatActivity extends EaseBaseActivity {
         //传入参数
         chatFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction().add(R.id.container, chatFragment).commit();
+        chatFragment.setChatFragmentListener(new EaseChatFragment.EaseChatFragmentListener() {
+            @Override
+            public void onSetMessageAttributes(EMMessage message) {
+
+            }
+
+            @Override
+            public void onEnterToChatDetails() {
+
+            }
+
+            @Override
+            public void onAvatarClick(String username) {
+
+            }
+
+            @Override
+            public boolean onMessageBubbleClick(EMMessage message) {
+                return false;
+            }
+
+            @Override
+            public void onMessageBubbleLongClick(EMMessage message) {
+
+            }
+
+            @Override
+            public boolean onExtendMenuItemClick(int itemId, View view) {
+                return false;
+            }
+
+            @Override
+            public EaseCustomChatRowProvider onSetCustomChatRowProvider() {
+                return null;
+            }
+        });
 
     }
 
