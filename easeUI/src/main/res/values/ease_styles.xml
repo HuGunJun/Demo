@@ -337,4 +337,13 @@
         <attr name="contactItemImage" format="reference" />
         <attr name="contactItemName" format="string" />
     </declare-styleable>
+
+    <!-- 视频播放器样式-->
+    <style name="switcher_item_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@drawable/switcher_item_text_selector</item>
+    </style>
+
 </resources>
