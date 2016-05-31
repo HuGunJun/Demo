@@ -335,6 +335,8 @@ public class MainActivity extends EaseBaseActivity {
                 startActivityForResult(new Intent(context, CaptureActivity.class),
                         100);
                 break;
+            case R.id.btn23:
+                break;
 
         }
 
