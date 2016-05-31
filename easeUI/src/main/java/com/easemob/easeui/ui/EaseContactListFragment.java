@@ -45,9 +45,7 @@ import com.easemob.EMError;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactManager;
 import com.easemob.easeui.R;
-import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
-import com.easemob.easeui.model.InviteManager;
 import com.easemob.easeui.utils.EaseCommonUtils;
 import com.easemob.easeui.widget.ContactItemView;
 import com.easemob.easeui.widget.EaseContactList;
@@ -130,6 +128,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     EaseUser user = (EaseUser) listView.getItemAtPosition(position);
                     listItemClickListener.onListItemClicked(user);
+//                    itemClickLaunchIntent.putExtra(EaseConstant.USER_ID, username);
                 }
             });
         }
@@ -215,6 +214,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
             refresh();
         }
     }
+
     public void setEaseContactListMenuListener(EaseContactListMenuListener menuListener) {
         this.mEaseContactListMenuListener = menuListener;
     }
@@ -274,16 +274,6 @@ public class EaseContactListFragment extends EaseBaseFragment {
     public void refresh() {
         getContactList();
         contactListLayout.refresh();
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (InviteManager.getManage(EaseUI.getInstance().getSQLHelper()).getUnreadMessagesCount() > 0) {
-                    applicationItem.showUnreadMsgView();
-                } else {
-                    applicationItem.hideUnreadMsgView();
-                }
-            }
-        });
     }
 
 
