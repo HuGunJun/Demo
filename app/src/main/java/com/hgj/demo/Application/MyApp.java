@@ -12,8 +12,6 @@ import com.hgj.demo.ChatHelper.ChatHelper;
  */
 public class MyApp extends Application {
 
-    private SQLHelper helper;
-
     @Override
     public void onCreate() {
         super.onCreate();
