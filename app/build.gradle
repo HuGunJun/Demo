@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.hgj.demo"
-        minSdkVersion 19
-        targetSdkVersion 23
+        minSdkVersion 14
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }

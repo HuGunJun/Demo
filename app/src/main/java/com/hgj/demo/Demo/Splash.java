@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.easemob.EMCallBack;
+import com.easemob.chat.EMChat;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactManager;
 import com.easemob.easeui.controller.EaseUI;
@@ -34,10 +35,10 @@ public class Splash extends EaseBaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (EMChatManager.getInstance().getCurrentUser() == null) {
+                if (EMChat.getInstance().isLoggedIn()) {
                     Login();
-                }else{
-                    startActivity(new Intent(context,LoginActivity.class));
+                } else {
+                    startActivity(new Intent(context, LoginActivity.class));
                 }
             }
         }, 3000);
