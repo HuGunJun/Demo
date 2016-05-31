@@ -46,7 +46,8 @@ public class ChatHelper {
         EaseUI.getInstance().init(context);
         EMChat.getInstance().setAutoLogin(true);
         EMChat.getInstance().setAppInited();
-
+        //注册一个监听连接状态的listener
+        EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
         //联系人监听
         EMContactManager.getInstance().setContactListener(new MyContactListener());
         //注册一个新消息到达的监听
