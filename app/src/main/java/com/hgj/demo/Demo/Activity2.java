@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.easemob.easeui.EaseConstant;
 import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
-import com.easemob.easeui.model.InviteManager;
 import com.easemob.easeui.model.UserManager;
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.ui.EaseContactListFragment;
@@ -41,20 +40,12 @@ public class Activity2 extends EaseBaseActivity {
         contactListFragment = new EaseContactListFragment();
         contactListFragment.setContactsMap(getContacts());
         contactListFragment
-                .setContactListItemClickListener(new EaseContactListFragment.EaseContactListItemClickListener() {
-
-                    @Override
-                    public void onListItemClicked(EaseUser user) {
-                    }
-                });
-        contactListFragment
                 .setContactListItemLongClickListener(new EaseContactListFragment.EaseContactListItemLongClickListener() {
 
                     @Override
                     public void onListItemLongClicked(EaseUser user) {
                         Toast.makeText(context, user.getUsername(),
                                 Toast.LENGTH_SHORT).show();
-
                     }
                 });
 
@@ -81,6 +72,17 @@ public class Activity2 extends EaseBaseActivity {
                 startActivity(intent);
             }
         });
+        contactListFragment.setEaseContactListMenuListener(new EaseContactListFragment.EaseContactListMenuListener() {
+            @Override
+            public void GrouChatListener() {
+                Toast.makeText(context, "点击群聊", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void InviteListener() {
+                Toast.makeText(context, "点击申请和通知", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -102,7 +104,6 @@ public class Activity2 extends EaseBaseActivity {
             contacts.put(i + "", user);
         }
         return contacts;
-
     }
 
 }

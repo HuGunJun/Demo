@@ -45,8 +45,11 @@ import com.easemob.EMError;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactManager;
 import com.easemob.easeui.R;
+import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.domain.EaseUser;
+import com.easemob.easeui.model.InviteManager;
 import com.easemob.easeui.utils.EaseCommonUtils;
+import com.easemob.easeui.widget.ContactItemView;
 import com.easemob.easeui.widget.EaseContactList;
 import com.easemob.exceptions.EaseMobException;
 
@@ -67,7 +70,10 @@ public class EaseContactListFragment extends EaseBaseFragment {
     protected EaseContactList contactListLayout;
     protected boolean isConflict;
     protected FrameLayout contentContainer;
-
+    private View loadingView;
+    private ContactItemView applicationItem;
+    private HeaderItemClickListener clickListener = new HeaderItemClickListener();
+    private EaseContactListMenuListener mEaseContactListMenuListener;
     private Map<String, EaseUser> contactsMap;
 
 
@@ -94,6 +100,15 @@ public class EaseContactListFragment extends EaseBaseFragment {
         //搜索框
         query = (EditText) getView().findViewById(R.id.query);
         clearSearch = (ImageButton) getView().findViewById(R.id.search_clear);
+        View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.em_contacts_header, null);
+        applicationItem = (ContactItemView) headerView.findViewById(R.id.application_item);
+        applicationItem.setOnClickListener(clickListener);
+        headerView.findViewById(R.id.group_item).setOnClickListener(clickListener);
+        //添加headerview
+        listView.addHeaderView(headerView);
+        //添加正在加载数据提示的loading view
+        loadingView = LayoutInflater.from(getActivity()).inflate(R.layout.em_layout_loading_data, null);
+        contentContainer.addView(loadingView);
     }
 
     @Override
@@ -115,7 +130,6 @@ public class EaseContactListFragment extends EaseBaseFragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     EaseUser user = (EaseUser) listView.getItemAtPosition(position);
                     listItemClickListener.onListItemClicked(user);
-//                    itemClickLaunchIntent.putExtra(EaseConstant.USER_ID, username);
                 }
             });
         }
@@ -169,6 +183,21 @@ public class EaseContactListFragment extends EaseBaseFragment {
 
     }
 
+    protected class HeaderItemClickListener implements OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.application_item) {
+                if (mEaseContactListMenuListener != null) {
+                    mEaseContactListMenuListener.InviteListener();
+                }
+            } else if (v.getId() == R.id.group_item) {
+                if (mEaseContactListMenuListener != null) {
+                    mEaseContactListMenuListener.GrouChatListener();
+                }
+            }
+        }
+    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -186,7 +215,23 @@ public class EaseContactListFragment extends EaseBaseFragment {
             refresh();
         }
     }
+    public void setEaseContactListMenuListener(EaseContactListMenuListener menuListener) {
+        this.mEaseContactListMenuListener = menuListener;
+    }
 
+    public interface EaseContactListMenuListener {
+
+        /**
+         * 群聊
+         */
+        void GrouChatListener();
+
+        /**
+         * 点击申请和通知
+         */
+        void InviteListener();
+
+    }
 
     /**
      * 把user移入到黑名单
@@ -229,6 +274,16 @@ public class EaseContactListFragment extends EaseBaseFragment {
     public void refresh() {
         getContactList();
         contactListLayout.refresh();
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (InviteManager.getManage(EaseUI.getInstance().getSQLHelper()).getUnreadMessagesCount() > 0) {
+                    applicationItem.showUnreadMsgView();
+                } else {
+                    applicationItem.hideUnreadMsgView();
+                }
+            }
+        });
     }
 
 

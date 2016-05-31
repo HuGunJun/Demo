@@ -332,4 +332,9 @@
     </style>
     <!-- 自定义加载进度样式-->
 
+    <!-- 联系人列表顶部菜单样式-->
+    <declare-styleable name="ContactItemView">
+        <attr name="contactItemImage" format="reference" />
+        <attr name="contactItemName" format="string" />
+    </declare-styleable>
 </resources>
