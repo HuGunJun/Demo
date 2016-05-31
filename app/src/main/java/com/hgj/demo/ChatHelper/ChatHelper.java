@@ -102,7 +102,7 @@ public class ChatHelper {
             switch (emNotifierEvent.getEvent()) {
                 case EventNewMessage: // 接收新消息
                     EMMessage message = (EMMessage) emNotifierEvent.getData();
-//                    EaseUI.getInstance().getNotifier().onNewMsg(message);
+                    EaseUI.getInstance().getNotifier().onNewMsg(message);
                     EaseUI.getInstance().getNotifier().viberateAndPlayTone(message);
                     // 刷新聊天历史页面
                     Activity1.conversationListFragment.refresh();
