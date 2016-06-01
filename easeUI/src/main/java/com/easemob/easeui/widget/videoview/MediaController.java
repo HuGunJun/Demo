@@ -105,7 +105,7 @@ public class MediaController extends FrameLayout implements SeekBar.OnSeekBarCha
         }
         mVideoFormatSwitcher.initData(format);
         if (format.size() < 2) {
-            mVideoSrcSwitcher.setVisibility(View.GONE);
+            mVideoFormatSwitcher.setVisibility(View.GONE);
         }
     }
 
@@ -184,12 +184,6 @@ public class MediaController extends FrameLayout implements SeekBar.OnSeekBarCha
         mVideoSrcSwitcher.setEasySwitcherCallback(mSrcSwitcherCallback);
     }
 
-    public void setVideoSrcAndVideoFormatVisiable(boolean isVisable) {
-        if (!isVisable) {
-            mVideoFormatSwitcher.setVisibility(View.GONE);
-            mVideoSrcSwitcher.setVisibility(View.GONE);
-        }
-    }
 
     @SuppressLint("SimpleDateFormat")
     private String formatPlayTime(long time) {

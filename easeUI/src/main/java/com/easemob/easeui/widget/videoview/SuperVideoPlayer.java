@@ -257,9 +257,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         mAllVideo = new ArrayList<>();
     }
 
-    public void setVideoSrcAndVideoFormatVisiable(boolean isVisable) {
-        mMediaController.setVideoSrcAndVideoFormatVisiable(isVisable);
-    }
 
 
     /***
