@@ -65,40 +65,30 @@ public class VideoAvtivity extends EaseBaseActivity {
         mSuperVideoPlayer.loadAndPlay(TEST_URL,
                 savedInstanceState.getInt("time"));
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_second);
         mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
-        Video video = new Video();
+
+
+        ArrayList<Video> videoArrayList = new ArrayList<>();
+        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
+
         VideoUrl videoUrl1 = new VideoUrl();
         videoUrl1.setFormatName("720P");
         videoUrl1.setFormatUrl(TEST_URL);
-        VideoUrl videoUrl2 = new VideoUrl();
-        videoUrl2.setFormatName("480P");
-        videoUrl2.setFormatUrl(TEST_URL);
-        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
         arrayList1.add(videoUrl1);
-        arrayList1.add(videoUrl2);
+
+
+        Video video = new Video();
         video.setVideoName("房源视频");
         video.setVideoUrl(arrayList1);
 
-        Video video2 = new Video();
-        VideoUrl videoUrl3 = new VideoUrl();
-        videoUrl3.setFormatName("720P");
-        videoUrl3.setFormatUrl(TEST_URL);
-        VideoUrl videoUrl4 = new VideoUrl();
-        videoUrl4.setFormatName("480P");
-        videoUrl4.setFormatUrl(TEST_URL);
-        ArrayList<VideoUrl> arrayList2 = new ArrayList<>();
-        arrayList2.add(videoUrl3);
-        arrayList2.add(videoUrl4);
-        video2.setVideoName("小区视频");
-        video2.setVideoUrl(arrayList2);
 
-        ArrayList<Video> videoArrayList = new ArrayList<>();
+
         videoArrayList.add(video);
-        videoArrayList.add(video2);
 
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
         mSuperVideoPlayer.setVideoPlayCallback(new SuperVideoPlayer.VideoPlayCallbackImpl() {
@@ -107,6 +97,7 @@ public class VideoAvtivity extends EaseBaseActivity {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 mSuperVideoPlayer
                         .setPageType(MediaController.PageType.SHRINK);
+                mSuperVideoPlayer.stopPlay();
             }
 
             @Override

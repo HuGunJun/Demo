@@ -41,8 +41,6 @@ public class SuperVideoPlayer extends RelativeLayout {
 
     private View mProgressBarView;
     private View mCloseBtnView;
-    private View mTvBtnView;
-
     private ArrayList<Video> mAllVideo;
     private Video mNowPlayVideo;
 
@@ -67,8 +65,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         public void onClick(View view) {
             if (view.getId() == R.id.video_close_view) {
                 mVideoPlayCallback.onCloseVideo();
-            } else if (view.getId() == R.id.video_share_tv_view) {
-                shareToTv();
             }
         }
     };
@@ -251,14 +247,11 @@ public class SuperVideoPlayer extends RelativeLayout {
         mMediaController = (MediaController) findViewById(R.id.controller);
         mProgressBarView = findViewById(R.id.progressbar);
         mCloseBtnView = findViewById(R.id.video_close_view);
-        mTvBtnView = findViewById(R.id.video_share_tv_view);
         mMediaController.setMediaControl(mMediaControl);
         mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
 
         mCloseBtnView.setVisibility(INVISIBLE);
-        mTvBtnView.setVisibility(VISIBLE);
         mCloseBtnView.setOnClickListener(mOnClickListener);
-        mTvBtnView.setOnClickListener(mOnClickListener);
         mProgressBarView.setVisibility(VISIBLE);
 
         mAllVideo = new ArrayList<>();
@@ -347,17 +340,9 @@ public class SuperVideoPlayer extends RelativeLayout {
         mMediaController.setProgressBar(progress, loadProgress);
     }
 
-    /**
-     * 获取控制器
-     *
-     * @return
-     */
-    public MediaController getMediaController() {
-        return mMediaController;
-    }
 
     /***
-     *
+     * 显示或者隐藏控制器
      */
     private void showOrHideController() {
         mMediaController.closeAllSwitchList();
@@ -382,6 +367,9 @@ public class SuperVideoPlayer extends RelativeLayout {
         }
     }
 
+    /**
+     * 保持显示控制器
+     */
     private void alwaysShowController() {
         mHandler.removeMessages(MSG_HIDE_CONTROLLER);
         mMediaController.setVisibility(View.VISIBLE);
@@ -393,6 +381,9 @@ public class SuperVideoPlayer extends RelativeLayout {
                 TIME_SHOW_CONTROLLER);
     }
 
+    /**
+     * 停止更新时间
+     */
     private void stopHideTimer() {
         mHandler.removeMessages(MSG_HIDE_CONTROLLER);
         mMediaController.setVisibility(View.VISIBLE);
@@ -402,6 +393,9 @@ public class SuperVideoPlayer extends RelativeLayout {
         mMediaController.startAnimation(animation);
     }
 
+    /**
+     * 重置时间
+     */
     private void resetUpdateTimer() {
         mUpdateTimer = new Timer();
         mUpdateTimer.schedule(new TimerTask() {
@@ -412,6 +406,9 @@ public class SuperVideoPlayer extends RelativeLayout {
         }, 0, TIME_UPDATE_PLAY_TIME);
     }
 
+    /**
+     * 停止更新时间控件
+     */
     private void stopUpdateTimer() {
         if (mUpdateTimer != null) {
             mUpdateTimer.cancel();
@@ -419,10 +416,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         }
     }
 
-    private void shareToTv() {
-        Toast.makeText(mContext, "It's can't support this now !",
-                Toast.LENGTH_SHORT).show();
-    }
 
     private class AnimationImp implements Animation.AnimationListener {
 

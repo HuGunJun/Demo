@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Video {
 
-    private String mVideoName;// 视频名称 如房源视频、小区视频
+    private String mVideoName;// 视频名称
     private ArrayList<VideoUrl> mVideoUrl;// 视频的地址列表
 
     /*************** 请看注释 ***************************/
