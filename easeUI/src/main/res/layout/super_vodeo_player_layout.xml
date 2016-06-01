@@ -13,6 +13,15 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"/>
 
+    <com.easemob.easeui.widget.videoview.BarrageView
+        android:id="@+id/barrageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/video_view"
+        android:layout_alignLeft="@+id/video_view"
+        android:layout_alignRight="@+id/video_view"
+        android:layout_alignTop="@+id/video_view"/>
+
     <com.easemob.easeui.widget.videoview.MediaController
         android:id="@+id/controller"
         android:layout_width="match_parent"

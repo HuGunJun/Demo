@@ -1,9 +1,5 @@
 package com.easemob.easeui.widget.videoview;
 
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -13,12 +9,18 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.easemob.easeui.R;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 作者：HuGuoJun
@@ -42,7 +44,7 @@ public class SuperVideoPlayer extends RelativeLayout {
     private View mProgressBarView;
     private ArrayList<Video> mAllVideo;
     private Video mNowPlayVideo;
-
+    private BarrageView barrageview;
     /**
      * 通知更新进程和时间
      */
@@ -230,11 +232,13 @@ public class SuperVideoPlayer extends RelativeLayout {
         initView(context);
     }
 
+
     private void initView(Context context) {
         mContext = context;
         View.inflate(context, R.layout.super_vodeo_player_layout, this);
         mSuperVideoView = (SuperVideoView) findViewById(R.id.video_view);
         mMediaController = (MediaController) findViewById(R.id.controller);
+        barrageview = (BarrageView) findViewById(R.id.barrageview);
         mProgressBarView = findViewById(R.id.progressbar);
         mMediaController.setMediaControl(mMediaControl);
         mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
