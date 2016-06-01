@@ -67,4 +67,7 @@
     <color name="holo_red_light">#ffff4444</color>
     <color name="emojicon_tab_selected">#D9D9D9</color>
     <color name="emojicon_tab_nomal">#ffffff</color>
+    <color name="biz_audio_progress_bg">#00b2ff</color>
+    <color name="biz_audio_progress_first">#ffffff</color>
+    <color name="biz_audio_progress_second">#6b6666</color>
 </resources>

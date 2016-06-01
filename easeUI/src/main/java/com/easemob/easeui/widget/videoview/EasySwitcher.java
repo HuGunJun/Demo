@@ -20,6 +20,10 @@ import java.util.ArrayList;
  * 2016/5/31 17:53
  * 邮箱：www.guojunkuaile@qq.com
  */
+
+/**
+ * 视频播放器的操作菜单
+ */
 public class EasySwitcher extends LinearLayout {
     private final int NORMAL_ICON = R.drawable.shipin_shang;
     private final int SELECT_ICON = R.drawable.shipin_xia;

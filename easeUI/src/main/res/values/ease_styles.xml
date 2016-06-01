@@ -334,8 +334,8 @@
 
     <!-- 联系人列表顶部菜单样式-->
     <declare-styleable name="ContactItemView">
-        <attr name="contactItemImage" format="reference" />
-        <attr name="contactItemName" format="string" />
+        <attr name="contactItemImage" format="reference"/>
+        <attr name="contactItemName" format="string"/>
     </declare-styleable>
 
     <!-- 视频播放器样式-->
@@ -345,5 +345,14 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@drawable/switcher_item_text_selector</item>
     </style>
+    <style name="video_progressbar_style">
+        <item name="android:maxWidth">43.0dip</item>
+        <item name="android:maxHeight">43.0dip</item>
+        <item name="android:indeterminateDrawable">@anim/biz_news_detailpage_loading_large_anim
+        </item>
+        <item name="android:minWidth">43.0dip</item>
+        <item name="android:minHeight">43.0dip</item>
+    </style>
+
 
 </resources>
