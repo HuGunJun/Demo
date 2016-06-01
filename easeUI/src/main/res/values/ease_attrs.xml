@@ -127,4 +127,13 @@
         <attr name="start_Y_offset" format="float" />
         <attr name="end_Y_offset" format="float" />
     </declare-styleable>
+
+    <!-- 播放gif -->
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
 </resources>

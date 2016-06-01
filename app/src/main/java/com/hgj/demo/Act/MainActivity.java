@@ -22,6 +22,7 @@ import com.easemob.easeui.widget.alertdialog.EaseAlertDialog_Ios;
 import com.easemob.easeui.widget.progress.SVProgressHUD;
 import com.easemob.easeui.widget.switchview.SegmentView;
 import com.hgj.demo.Demo.VideoAvtivity;
+import com.hgj.demo.Demo.XlistViewActivity;
 import com.hgj.demo.R;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
@@ -338,6 +339,9 @@ public class MainActivity extends EaseBaseActivity {
                 break;
             case R.id.btn23:
                 startActivity(new Intent(context, VideoAvtivity.class));
+                break;
+            case R.id.btn24:
+                startActivity(new Intent(context, XlistViewActivity.class));
                 break;
         }
     }

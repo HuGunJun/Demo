@@ -239,6 +239,16 @@
                 android:text="视频"/>
 
 
+            <!-- xlistview -->
+
+            <Button
+                android:id="@+id/btn24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="XListView"/>
+
+
         </LinearLayout>
     </ScrollView>
 
