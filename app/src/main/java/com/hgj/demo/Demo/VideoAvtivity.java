@@ -25,7 +25,7 @@ public class VideoAvtivity extends EaseBaseActivity {
 
     private String TEST_URL = "http://172.16.0.156:8080/com.nkbh.pro/a.mp4";
     private SuperVideoPlayer mSuperVideoPlayer;
-    private int time;
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

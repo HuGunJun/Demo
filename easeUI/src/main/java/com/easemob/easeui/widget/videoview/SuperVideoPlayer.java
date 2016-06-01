@@ -2,6 +2,7 @@ package com.easemob.easeui.widget.videoview;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -45,6 +46,8 @@ public class SuperVideoPlayer extends RelativeLayout {
     private ArrayList<Video> mAllVideo;
     private Video mNowPlayVideo;
     private BarrageView barrageview;
+
+
     /**
      * 通知更新进程和时间
      */
@@ -231,7 +234,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         super(context, attrs);
         initView(context);
     }
-
 
     private void initView(Context context) {
         mContext = context;
