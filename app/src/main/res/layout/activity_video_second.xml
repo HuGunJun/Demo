@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@android:color/white"
@@ -9,10 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <com.easemob.easeui.widget.videoview.SuperVideoPlayer
             android:id="@+id/video_player_item_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+        <com.easemob.easeui.widget.barrageview.BarrageView
+            android:id="@+id/danmakuView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:end_Y_offset="0.8"
+            app:max_row="4"
+            app:max_running_per_row="2"
+            app:pick_interval="1000"
+            app:show_debug="false"
+            app:start_Y_offset="0.2"/>
     </FrameLayout>
 
 </LinearLayout>

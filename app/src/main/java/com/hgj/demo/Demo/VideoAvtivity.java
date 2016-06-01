@@ -3,11 +3,17 @@ package com.hgj.demo.Demo;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.easemob.easeui.ui.EaseBaseActivity;
 import com.easemob.easeui.utils.DensityUtil;
+import com.easemob.easeui.widget.barrageview.BarrageView;
+import com.easemob.easeui.widget.barrageview.BarrageViewItem;
+import com.easemob.easeui.widget.barrageview.IBarrageViewItem;
 import com.easemob.easeui.widget.videoview.MediaController;
 import com.easemob.easeui.widget.videoview.SuperVideoPlayer;
 import com.easemob.easeui.widget.videoview.Video;
@@ -15,6 +21,8 @@ import com.easemob.easeui.widget.videoview.VideoUrl;
 import com.hgj.demo.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 作者：HuGuoJun
@@ -25,7 +33,7 @@ public class VideoAvtivity extends EaseBaseActivity {
 
     private String TEST_URL = "http://172.16.0.156:8080/com.nkbh.pro/a.mp4";
     private SuperVideoPlayer mSuperVideoPlayer;
-
+    private BarrageView mBarrageView;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -65,6 +73,26 @@ public class VideoAvtivity extends EaseBaseActivity {
         mSuperVideoPlayer.loadAndPlay(TEST_URL,
                 savedInstanceState.getInt("time"));
     }
+
+
+    private List<IBarrageViewItem> initItems() {
+        List<IBarrageViewItem> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            IBarrageViewItem item = new BarrageViewItem(this, i + " : plain text danmuku", mBarrageView.getWidth());
+            list.add(item);
+        }
+
+        String msg = " : text with image   ";
+        for (int i = 0; i < 100; i++) {
+            ImageSpan imageSpan = new ImageSpan(this, R.drawable.ic_launcher);
+            SpannableString spannableString = new SpannableString(i + msg);
+            spannableString.setSpan(imageSpan, spannableString.length() - 2, spannableString.length() - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            IBarrageViewItem item = new BarrageViewItem(this, spannableString, mBarrageView.getWidth(), 0, 0, 0, 1.5f);
+            list.add(item);
+        }
+        return list;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,8 +144,35 @@ public class VideoAvtivity extends EaseBaseActivity {
             public void onPlayFinish() {
             }
         });
+
+        mBarrageView = (BarrageView) findViewById(R.id.danmakuView);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                List<IBarrageViewItem> list = initItems();
+                Collections.shuffle(list);
+                mBarrageView.addItem(list, true);
+            }
+        });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBarrageView.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mBarrageView.hide();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mBarrageView.clear();
+    }
 
     @Override
     public void onClick(View view) {
