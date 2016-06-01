@@ -116,7 +116,6 @@ public class VideoAvtivity extends EaseBaseActivity {
         video.setVideoUrl(arrayList1);
         videoArrayList.add(video);
 
-
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
         mSuperVideoPlayer.setVideoPlayCallback(new SuperVideoPlayer.VideoPlayCallbackImpl() {
             @Override
