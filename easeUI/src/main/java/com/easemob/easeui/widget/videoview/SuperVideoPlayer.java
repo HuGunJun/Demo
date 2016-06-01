@@ -40,7 +40,6 @@ public class SuperVideoPlayer extends RelativeLayout {
     private VideoPlayCallbackImpl mVideoPlayCallback;
 
     private View mProgressBarView;
-    private View mCloseBtnView;
     private ArrayList<Video> mAllVideo;
     private Video mNowPlayVideo;
 
@@ -60,14 +59,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         }
     };
 
-    private View.OnClickListener mOnClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            if (view.getId() == R.id.video_close_view) {
-                mVideoPlayCallback.onCloseVideo();
-            }
-        }
-    };
 
     private View.OnTouchListener mOnTouchVideoListener = new OnTouchListener() {
         @Override
@@ -144,7 +135,6 @@ public class SuperVideoPlayer extends RelativeLayout {
                 public boolean onInfo(MediaPlayer mp, int what, int extra) {
                     if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
                         mProgressBarView.setVisibility(View.GONE);
-                        mCloseBtnView.setVisibility(VISIBLE);
                         return true;
                     }
                     return false;
@@ -246,17 +236,13 @@ public class SuperVideoPlayer extends RelativeLayout {
         mSuperVideoView = (SuperVideoView) findViewById(R.id.video_view);
         mMediaController = (MediaController) findViewById(R.id.controller);
         mProgressBarView = findViewById(R.id.progressbar);
-        mCloseBtnView = findViewById(R.id.video_close_view);
         mMediaController.setMediaControl(mMediaControl);
         mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
 
-        mCloseBtnView.setVisibility(INVISIBLE);
-        mCloseBtnView.setOnClickListener(mOnClickListener);
         mProgressBarView.setVisibility(VISIBLE);
 
         mAllVideo = new ArrayList<>();
     }
-
 
 
     /***
@@ -298,7 +284,6 @@ public class SuperVideoPlayer extends RelativeLayout {
     public void loadAndPlay(String videoUrl, int seekTime) {
         mProgressBarView.setVisibility(VISIBLE);
         if (seekTime == 0) {
-            mCloseBtnView.setVisibility(GONE);
             mProgressBarView.setBackgroundResource(android.R.color.black);
         } else {
             mProgressBarView.setBackgroundResource(android.R.color.transparent);
