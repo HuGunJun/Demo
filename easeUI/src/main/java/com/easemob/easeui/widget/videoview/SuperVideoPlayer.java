@@ -257,6 +257,11 @@ public class SuperVideoPlayer extends RelativeLayout {
         mAllVideo = new ArrayList<>();
     }
 
+    public void setVideoSrcAndVideoFormatVisiable(boolean isVisable) {
+        mMediaController.setVideoSrcAndVideoFormatVisiable(isVisable);
+    }
+
+
     /***
      * 更换清晰度地址时，续播
      */

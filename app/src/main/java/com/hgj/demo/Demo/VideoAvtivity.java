@@ -71,25 +71,18 @@ public class VideoAvtivity extends EaseBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_second);
         mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
-
-
-        ArrayList<Video> videoArrayList = new ArrayList<>();
-        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
-
+        Video video = new Video();
         VideoUrl videoUrl1 = new VideoUrl();
         videoUrl1.setFormatName("720P");
         videoUrl1.setFormatUrl(TEST_URL);
+        ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
         arrayList1.add(videoUrl1);
-
-
-        Video video = new Video();
         video.setVideoName("房源视频");
         video.setVideoUrl(arrayList1);
 
 
-
+        ArrayList<Video> videoArrayList = new ArrayList<>();
         videoArrayList.add(video);
-
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList);
         mSuperVideoPlayer.setVideoPlayCallback(new SuperVideoPlayer.VideoPlayCallbackImpl() {
             @Override

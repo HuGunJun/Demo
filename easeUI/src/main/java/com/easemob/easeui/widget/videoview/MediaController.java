@@ -94,6 +94,8 @@ public class MediaController extends FrameLayout implements SeekBar.OnSeekBarCha
             name.add(video.getVideoName());
         }
         mVideoSrcSwitcher.initData(name);
+        if (name.size() < 2)
+            mVideoSrcSwitcher.setVisibility(View.GONE);
     }
 
     public void initPlayVideo(Video video) {
@@ -102,6 +104,9 @@ public class MediaController extends FrameLayout implements SeekBar.OnSeekBarCha
             format.add(url.getFormatName());
         }
         mVideoFormatSwitcher.initData(format);
+        if (format.size() < 2) {
+            mVideoSrcSwitcher.setVisibility(View.GONE);
+        }
     }
 
     public void closeAllSwitchList() {
@@ -177,6 +182,13 @@ public class MediaController extends FrameLayout implements SeekBar.OnSeekBarCha
         setPlayState(PlayState.PAUSE);
         mVideoFormatSwitcher.setEasySwitcherCallback(mFormatSwitcherCallback);
         mVideoSrcSwitcher.setEasySwitcherCallback(mSrcSwitcherCallback);
+    }
+
+    public void setVideoSrcAndVideoFormatVisiable(boolean isVisable) {
+        if (!isVisable) {
+            mVideoFormatSwitcher.setVisibility(View.GONE);
+            mVideoSrcSwitcher.setVisibility(View.GONE);
+        }
     }
 
     @SuppressLint("SimpleDateFormat")
