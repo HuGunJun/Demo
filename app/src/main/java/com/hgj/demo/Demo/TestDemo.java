@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
+import com.easemob.easeui.controller.EaseUI;
 import com.hgj.demo.R;
 
 /**
@@ -21,6 +22,7 @@ public class TestDemo extends TabActivity {
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
+        EaseUI.getInstance().pushActivity(this);
         setContentView(R.layout.activity_test_demo);
         InitView();
         InitData();

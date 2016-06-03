@@ -3,6 +3,7 @@ package com.hgj.demo.Application;
 import android.app.Application;
 
 import com.hgj.demo.ChatHelper.ChatHelper;
+import com.hgj.demo.Demo.CrashHandler;
 
 /**
  * 作者：HuGuoJun
@@ -15,5 +16,6 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         ChatHelper.getInstance().init(this);
+        CrashHandler.getInstance().init(this);
     }
 }

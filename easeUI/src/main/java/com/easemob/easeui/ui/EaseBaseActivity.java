@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.easemob.easeui.controller.EaseUI;
 import com.easemob.easeui.widget.loadding.ZProgressHUD;
 
 public abstract class EaseBaseActivity extends AppCompatActivity {
@@ -47,6 +48,7 @@ public abstract class EaseBaseActivity extends AppCompatActivity {
         }
         wm = this.getWindowManager();
         inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        EaseUI.getInstance().pushActivity(this);
     }
 
     /**
