@@ -63,6 +63,7 @@ public class LoginActivity extends EaseBaseActivity {
             Toast.makeText(context, "请输入密码", Toast.LENGTH_SHORT).show();
             return;
         }
+        ShowLoadingDialog();
         EMChatManager.getInstance().login(username, pass, new EMCallBack() {
             @Override
             public void onSuccess() {
@@ -89,17 +90,19 @@ public class LoginActivity extends EaseBaseActivity {
                         list_black.add(hashMap);
                     }
                     EaseUI.getInstance().setBlacklist(list_black);
-
+                    CloseLoadingDialog();
                     startActivity(new Intent(context, TestDemo.class));
                     finish();
                 } catch (EaseMobException e) {
+                    CloseLoadingDialog();
                     e.printStackTrace();
                 }
+
             }
 
             @Override
             public void onError(int i, String s) {
-
+                CloseLoadingDialog();
             }
 
             @Override
