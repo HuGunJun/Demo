@@ -33,7 +33,7 @@ import java.util.Random;
 
 public class BarrageView extends View {
 
-    public static final String TAG = "DanmakuView";
+    public static final String TAG = "BarrageView";
 
     private final Context mContext;
 
@@ -89,10 +89,10 @@ public class BarrageView extends View {
 
     private void checkYOffset(float start, float end) {
         if (start >= end) {
-            throw new IllegalArgumentException("start_Y_offset must < end_Y_offset");
+            throw new IllegalArgumentException("start_Y_offset 必须 < end_Y_offset");
         }
         if (start < 0f || start >= 1f || end < 0f || end > 1f) {
-            throw new IllegalArgumentException("start_Y_offset and end_Y_offset must between 0 and 1)");
+            throw new IllegalArgumentException("必须在 0 and 1)");
         }
     }
 
@@ -169,20 +169,16 @@ public class BarrageView extends View {
                     if (di != null) {
                         int indexY = findVacant(di);
                         if (indexY >= 0) {
-//                            Log.d(TAG, "find vacant channel");
                             di.setStartPosition(canvas.getWidth() - 2, mChannelY[indexY]);
-//                            Log.d(TAG, "draw new, text:" + di.getText());
-                            //Log.d(TAG, String.format("doDraw, position,x=%s,y=%s", c.getWidth() - 1, mChannelY[indexY]));
                             di.doDraw(canvas);
                             mChannelMap.get(indexY).add(di);//不要忘记加入正运行的维护的列表中
 
                         } else {
-//                                Log.d(TAG, "Not find vacant channel, add it back");
                             addItemToHead(di);//找不到可以播放的弹道,则把它放回列表中
                         }
 
                     } else {
-                        //no item 弹幕播放完毕,
+                        // 弹幕播放完毕,
                     }
 
                 }
@@ -283,16 +279,6 @@ public class BarrageView extends View {
         clearItems();
         invalidate();
     }
-
-//    /**清空弹幕等待队列,暂停播放*/
-//    public void pauseAndClear() {
-//        if (mWaitingItems != null) {
-//            synchronized (mWaitingItems) {
-//                mWaitingItems.clear();
-//            }
-//        }
-//        clearPlayingItems();
-//    }
 
     private void clearItems() {
         clearRunning();
