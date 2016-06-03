@@ -1,4 +1,4 @@
-package com.hgj.demo.Demo;
+package com.hgj.demo.Act;
 
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;

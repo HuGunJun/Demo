@@ -21,7 +21,6 @@ import com.easemob.easeui.widget.actionsheetdialog.ActionSheetDialog.SheetItemCo
 import com.easemob.easeui.widget.alertdialog.EaseAlertDialog_Ios;
 import com.easemob.easeui.widget.progress.SVProgressHUD;
 import com.easemob.easeui.widget.switchview.SegmentView;
-import com.hgj.demo.Demo.VideoAvtivity;
 import com.hgj.demo.Demo.XlistViewActivity;
 import com.hgj.demo.R;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;

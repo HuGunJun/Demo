@@ -79,7 +79,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Demo.VideoAvtivity"
+            android:name=".Act.VideoAvtivity"
             android:configChanges="orientation|screenSize"></activity>
         <activity android:name=".Demo.XlistViewActivity"></activity>
         <!-- 上面是测试的Demo-->
