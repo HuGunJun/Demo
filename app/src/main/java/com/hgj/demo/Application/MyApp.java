@@ -2,7 +2,6 @@ package com.hgj.demo.Application;
 
 import android.app.Application;
 
-import com.easemob.easeui.helper.SQLHelper;
 import com.hgj.demo.ChatHelper.ChatHelper;
 
 /**
@@ -17,5 +16,4 @@ public class MyApp extends Application {
         super.onCreate();
         ChatHelper.getInstance().init(this);
     }
-
 }
