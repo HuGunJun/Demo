@@ -68,7 +68,7 @@ public class Activity2 extends EaseBaseActivity {
             @Override
             public void onListItemClicked(EaseUser user) {
                 Intent intent = new Intent(context, ChatActivity.class);
-//                intent.putExtra(EaseConstant.EXTRA_USER_ID, user.getUsername());
+                intent.putExtra(EaseConstant.EXTRA_USER_ID, user.getUsername());
                 startActivity(intent);
             }
         });
