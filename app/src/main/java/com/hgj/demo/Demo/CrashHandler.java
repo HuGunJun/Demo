@@ -110,14 +110,14 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             return false;
         }
         //使用Toast来显示异常信息
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                Looper.prepare();
-//                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出.", Toast.LENGTH_LONG).show();
-//                Looper.loop();
-//            }
-//        }.start();
+        new Thread() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出.", Toast.LENGTH_LONG).show();
+                Looper.loop();
+            }
+        }.start();
         //收集设备参数信息
         collectDeviceInfo(mContext);
         //保存日志文件
@@ -186,14 +186,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             String time = formatter.format(new Date());
             String fileName = "crash-" + time + "-" + timestamp + ".log";
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-//                String path = "/sdcard/crash/";
-//                File dir = new File(path);
-//                if (!dir.exists()) {
-//                    dir.mkdirs();
-//                }
-//                FileOutputStream fos = new FileOutputStream(path + fileName);
-//                fos.write(sb.toString().getBytes());
-//                fos.close();
                 String path = FileUtils.getErrorLogPath(mContext);
                 FileOutputStream fos = new FileOutputStream(path + "/" + fileName);
                 fos.write(sb.toString().getBytes());
