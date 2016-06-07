@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.hgj.demo"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.hgj.demo"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--  权限 -->
+    <!-- 权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -26,49 +25,39 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
-
     <application
         android:name=".Application.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".Act.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-
-        <activity android:name=".Act.ImageTurn"></activity>
-
+        <activity android:name=".Act.ImageTurn"/>
         <activity
             android:name=".Act.Act_SychronizeHorizontalView"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
         </activity>
+        <activity android:name=".Act.LoaddingActivity"/>
+        <activity android:name=".Act.ListAnimation"/>
+        <activity android:name="com.zbar.lib.CaptureActivity"/>
 
-        <activity android:name=".Act.LoaddingActivity"></activity>
-
-        <activity android:name=".Act.ListAnimation"></activity>
-
-        <activity android:name="com.zbar.lib.CaptureActivity"></activity>
-
-
-        <!-- 下面是测试的Demo-->
-
+        <!-- 下面是测试的Demo -->
 
         <activity
             android:name=".Demo.TestDemo"
             android:windowSoftInputMode="adjustPan">
         </activity>
-
+        <activity android:name=".Demo.Activity1"/>
+        <activity android:name=".Demo.Activity2"/>
+        <activity android:name=".Demo.Activity3"/>
         <activity
-            android:name=".Demo.Activity1"></activity>
-        <activity android:name=".Demo.Activity2"></activity>
-        <activity android:name=".Demo.Activity3"></activity>
-        <activity android:name=".Demo.ChatActivity"
-            android:launchMode="singleTask"></activity>
+            android:name=".Demo.ChatActivity"
+            android:launchMode="singleTask"/>
         <activity android:name=".Demo.LoginActivity">
         </activity>
         <activity android:name=".Demo.Splash">
@@ -80,9 +69,11 @@
         </activity>
         <activity
             android:name=".Act.VideoAvtivity"
-            android:configChanges="orientation|screenSize"></activity>
-        <activity android:name=".Demo.XlistViewActivity"></activity>
-        <!-- 上面是测试的Demo-->
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".Demo.XlistViewActivity"/>
+        <activity android:name=".Act.DropDownAct">
+        </activity>
+        <!-- 上面是测试的Demo -->
 
 
         <!-- 设置环信应用的appkey -->
