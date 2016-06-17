@@ -73,6 +73,8 @@
         <activity android:name=".Demo.XlistViewActivity"/>
         <activity android:name=".Act.DropDownAct">
         </activity>
+        <activity android:name=".Act.KeyWordActivity">
+        </activity>
         <!-- 上面是测试的Demo -->
 
 

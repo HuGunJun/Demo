@@ -345,6 +345,9 @@ public class MainActivity extends EaseBaseActivity {
             case R.id.btn25:
                 startActivity(new Intent(context, DropDownAct.class));
                 break;
+            case R.id.btn26:
+                startActivity(new Intent(context,KeyWordActivity.class));
+                break;
         }
     }
 
